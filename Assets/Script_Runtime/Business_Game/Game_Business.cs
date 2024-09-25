@@ -59,10 +59,15 @@ namespace VR {
 
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(ctx, owner, dt);
+
         }
 
         static void LateTick(GameContext ctx, float dt) {
+            RoleEntity owner = ctx.Role_GetOwner();
 
+            Vector2 offset = new Vector2(0, 0);
+
+            ctx.cameraCore.Tick(owner.transform.position, offset, 10, owner.transform.forward, dt);
         }
 
     }

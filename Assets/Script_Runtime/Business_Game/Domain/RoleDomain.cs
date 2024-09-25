@@ -46,6 +46,8 @@ namespace VR {
             role.transform.position += moveDir;
 
         }
+
+        
     }
 
 
