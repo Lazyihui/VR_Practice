@@ -23,6 +23,12 @@ namespace VR {
 
             return entity;
         }
+
+
+        public static void UnSpawn(GameContext ctx,RoleEntity role){
+            ctx.roleRepo.Remove(role);
+            role.TearDown();
+        }
     }
 
 

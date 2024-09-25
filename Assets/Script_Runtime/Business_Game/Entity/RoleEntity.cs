@@ -9,5 +9,9 @@ namespace VR {
         public int id;
 
         public void Ctor() { }
+
+        public void TearDown() { 
+            Destroy(gameObject);
+        }
     }
 }

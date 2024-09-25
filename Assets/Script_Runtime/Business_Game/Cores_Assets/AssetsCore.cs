@@ -24,7 +24,7 @@ namespace VR {
             {
                 AssetLabelReference labelReference = new AssetLabelReference();
                 // TODO:"Entity"
-                labelReference.labelString = "Entity";
+                labelReference.labelString = AssetLabelConst.Entity;
                 var handle = Addressables.LoadAssetsAsync<GameObject>(labelReference, null);
 
                 var all = await handle.Task;
