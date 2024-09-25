@@ -39,6 +39,13 @@ namespace VR {
 
 
         void Update() {
+            if (!isInit) {
+                return;
+            }
+
+            float dt = Time.deltaTime;
+
+            Game_Business.Tick(ctx, dt);
 
         }
 
