@@ -45,11 +45,7 @@ namespace VR {
         static void PreTick(GameContext ctx, float dt) {
             InputCore input = ctx.inputCore;
 
-            // input.Tick(dt);
-
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                Debug.Log("jjjjjjjj");
-            }
+            input.Tick(dt);
 
             // 赋值给角色
             RoleEntity owner = ctx.Role_GetOwner();

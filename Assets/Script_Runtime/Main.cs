@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -20,8 +21,10 @@ namespace VR {
 
             // == Ctor ==
             ctx = new GameContext();
+
+            Camera maincam = Camera.main;
             //  == Injiect ==
-            ctx.Inject();
+            ctx.Inject(maincam);
 
             // == Load ==
 

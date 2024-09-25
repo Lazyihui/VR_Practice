@@ -15,15 +15,22 @@ namespace VR {
         public AssetssCore assetsCore;
 
         public InputCore inputCore;
+
+        public CameraCore cameraCore;
         public GameContext() {
             gameEntity = new GameEntity();
 
             roleRepo = new RoleRepo();
+
+
             assetsCore = new AssetssCore();
             inputCore = new InputCore();
+            cameraCore = new CameraCore();
         }
 
-        public void Inject() { }
+        public void Inject(Camera camera) {
+            cameraCore.Inject(camera);
+        }
 
         public RoleEntity Role_GetOwner() {
             bool has = roleRepo.TryGet(gameEntity.roleOwnerID, out RoleEntity entity);
