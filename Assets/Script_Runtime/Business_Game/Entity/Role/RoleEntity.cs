@@ -8,10 +8,13 @@ namespace VR {
     public class RoleEntity : MonoBehaviour {
         public int id;
 
-        public RoleInputComponent roleInputComponent;
+        public float moveSpeed;
+        public RoleInputComponent InputComponent;
 
         public void Ctor() {
-            roleInputComponent = new RoleInputComponent();
+            InputComponent = new RoleInputComponent();
+
+            moveSpeed = 5.5f;
         }
 
         public void TearDown() {

@@ -6,7 +6,8 @@ namespace VR {
     public static class Game_Business {
         public static void Enter(GameContext ctx) {
 
-            RoleDomain.Spawn(ctx, 1, new Vector3(0, 0, 0));
+            RoleEntity role = RoleDomain.Spawn(ctx, 1, new Vector3(0, 0, 0));
+            ctx.gameEntity.roleOwnerID = role.id;
         }
 
 
@@ -42,10 +43,26 @@ namespace VR {
 
 
         static void PreTick(GameContext ctx, float dt) {
+            InputCore input = ctx.inputCore;
 
+            // input.Tick(dt);
+
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                Debug.Log("jjjjjjjj");
+            }
+
+            // 赋值给角色
+            RoleEntity owner = ctx.Role_GetOwner();
+
+            RoleInputComponent InputComponent = owner.InputComponent;
+            InputComponent.moveAxis = input.GetMoveAxis();
+            InputComponent.rotateAxis = input.GetRotateAxis();
         }
 
         static void FixTick(GameContext ctx, float dt) {
+
+            RoleEntity owner = ctx.Role_GetOwner();
+            RoleDomain.Move(ctx, owner, dt);
         }
 
         static void LateTick(GameContext ctx, float dt) {
