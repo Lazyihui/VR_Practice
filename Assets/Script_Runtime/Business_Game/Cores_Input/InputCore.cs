@@ -17,27 +17,24 @@ namespace VR {
 
         public void Tick(float dt) {
 
-            Vector2 moveAxis = ctx.inputActions.Game.Move.ReadValue<Vector2>();
-            ctx.rightHandl.moveAxis = moveAxis;
-            Debug.Log("moveAxis:" + moveAxis);
-            // 处理输入
-            // if (Input.GetKey(KeyCode.W)) {
-            //     moveAxis.y = 1;
-            // } else if (Input.GetKey(KeyCode.S)) {
-            //     moveAxis.y = -1;
-            // }
+            {
+                // moveAxis
+                Vector2 moveAxis = ctx.inputActions.Game.Move.ReadValue<Vector2>();
+                ctx.rightHandl.moveAxis = moveAxis;
+                // 处理输入
+            }
 
-            // if (Input.GetKey(KeyCode.A)) {
-            //     moveAxis.x = -1;
-            // } else if (Input.GetKey(KeyCode.D)) {
-            //     moveAxis.x = 1;
-            // }
+            {
+                //  rotateAxis
+                if(ctx.inputActions.Game.Rotate.phase == UnityEngine.InputSystem.InputActionPhase.Performed)
+                {
+                    Debug.Log("Rotate Performed");
+                }
+                Vector2 rotateAxis = ctx.inputActions.Game.Rotate.ReadValue<Vector2>();
 
+                ctx.rightHandl.rotateAxis = rotateAxis;
+            }
 
-
-
-
-            //  rotateAxis
 
 
         }

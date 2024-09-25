@@ -47,7 +47,22 @@ namespace VR {
 
         }
 
-        
+        public static void RotateFace(GameContext ctx, RoleEntity role, float dt) {
+            RoleInputComponent inputComponent = role.InputComponent;
+
+            float rotateSpeed = role.rotateSpeed;
+
+            float UpDown = inputComponent.rotateAxis.y;
+
+            Vector3 rotateDir = new Vector3(UpDown, inputComponent.rotateAxis.x, 0);
+
+            rotateDir = rotateDir * rotateSpeed * dt;
+
+            role.transform.Rotate(rotateDir);
+
+        }
+
+
     }
 
 

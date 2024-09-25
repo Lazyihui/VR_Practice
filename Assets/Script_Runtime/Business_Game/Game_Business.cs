@@ -59,6 +59,7 @@ namespace VR {
 
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(ctx, owner, dt);
+            RoleDomain.RotateFace(ctx, owner, dt);
 
         }
 
@@ -67,7 +68,7 @@ namespace VR {
 
             Vector2 offset = new Vector2(0, 0);
 
-            ctx.cameraCore.Tick(owner.transform.position, offset, 10, owner.transform.forward, dt);
+            ctx.cameraCore.Tick(owner.transform.position, offset, 0, owner.transform.forward, dt);
         }
 
     }
