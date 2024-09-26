@@ -42,7 +42,6 @@ namespace VR {
             // 
 
             moveDir = moveDir * moveSpeed * dt;
-
             role.transform.position += moveDir;
 
         }

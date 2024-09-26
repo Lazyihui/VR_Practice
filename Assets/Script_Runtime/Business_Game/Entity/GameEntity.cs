@@ -11,10 +11,13 @@ namespace VR {
 
         public float restTime;
 
+        public float enterTimer;
 
         public GameEntity() {
             roleOwnerID = 0;
             restTime = 0;
+
+            enterTimer = 3;
         }
     }
 }

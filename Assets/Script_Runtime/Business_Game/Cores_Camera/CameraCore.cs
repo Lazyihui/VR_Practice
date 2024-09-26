@@ -17,7 +17,7 @@ namespace VR {
         }
 
         public void Tick(Vector3 follow_targetPos, Vector2 follow_Offset, float follow_distance, Vector3 face, float dt) {
-
+            // 只是简单的赋值
             CameraVirtualEntity virtualEntity = ctx.virtualEntity;
 
             virtualEntity.tagetPos = follow_targetPos;
