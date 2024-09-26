@@ -40,9 +40,9 @@ namespace VR
                 },
                 {
                     ""name"": ""Rotate"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""bdeffdc8-bb09-4d4e-b823-17025e1d84d3"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Quaternion"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -161,8 +161,8 @@ namespace VR
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1c0c3e13-7ef7-4c34-9821-5c286a2279db"",
-                    ""path"": ""<Mouse>/middleButton"",
+                    ""id"": ""78296178-e004-4af9-8e37-fdcb45f688cc"",
+                    ""path"": ""<XRHMD>/centerEyeRotation"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Game"",

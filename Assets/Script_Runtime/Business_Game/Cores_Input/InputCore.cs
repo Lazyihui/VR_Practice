@@ -26,13 +26,12 @@ namespace VR {
 
             {
                 //  rotateAxis
-                if(ctx.inputActions.Game.Rotate.phase == UnityEngine.InputSystem.InputActionPhase.Performed)
-                {
-                    Debug.Log("Rotate Performed");
-                }
-                Vector2 rotateAxis = ctx.inputActions.Game.Rotate.ReadValue<Vector2>();
+               Quaternion quat = ctx.inputActions.Game.Rotate.ReadValue<Quaternion>();
+               Vector3 fwd = quat * Vector3.forward;
 
-                ctx.rightHandl.rotateAxis = rotateAxis;
+                // Vector2 rotateAxis = ctx.inputActions.Game.Rotate.ReadValue<Vector2>();
+
+                // ctx.rightHandl.rotateAxis = rotateAxis;
             }
 
 
