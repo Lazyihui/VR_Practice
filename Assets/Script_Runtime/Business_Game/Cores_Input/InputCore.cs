@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.XR;
 using VR.InputInterval;
+using UnityEngine.InputSystem;
 
 
 namespace VR {
@@ -26,14 +27,18 @@ namespace VR {
 
             {
                 //  rotateAxis
-               Quaternion quat = ctx.inputActions.Game.Rotate.ReadValue<Quaternion>();
-               Vector3 fwd = quat * Vector3.forward;
+                Quaternion quat = ctx.inputActions.Game.Rotate.ReadValue<Quaternion>();
+                
+                Vector3 fwd = quat * Vector3.forward;
 
                 // Vector2 rotateAxis = ctx.inputActions.Game.Rotate.ReadValue<Vector2>();
 
                 // ctx.rightHandl.rotateAxis = rotateAxis;
             }
-
+            // 按下中键
+            {
+                
+            }
 
 
         }

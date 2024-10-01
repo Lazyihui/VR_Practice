@@ -1,2 +1,15 @@
 fileFormatVersion: 2
 guid: c51a7f50f42a3cf45ae8971f3f7876cd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - MyLeftButton_X: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  - MyLeftButton_Y: {instanceID: 0}
+  - MyRightButton_X: {instanceID: 0}
+  - MyRightButton_Y: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

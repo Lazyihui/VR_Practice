@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 
 
@@ -10,7 +11,11 @@ namespace VR {
 
 
     public class Main : MonoBehaviour {
+        public InputActionReference MyLeftButton_X;
+        public InputActionReference MyLeftButton_Y;
 
+        public InputActionReference MyRightButton_X;
+        public InputActionReference MyRightButton_Y;
         GameContext ctx;
 
         bool isInit = false;

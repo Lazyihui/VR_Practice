@@ -46,6 +46,15 @@ namespace VR
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ButtonKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""5c1a0502-acb5-4f2d-b047-589ffd8e7f15"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -169,6 +178,28 @@ namespace VR
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d54f036f-4aba-4cc9-a3c1-90f9d49e86e3"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05864af8-d4cc-4136-b4dc-3a2af04d08be"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Game"",
+                    ""action"": ""ButtonKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +216,7 @@ namespace VR
             m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
             m_Game_Move = m_Game.FindAction("Move", throwIfNotFound: true);
             m_Game_Rotate = m_Game.FindAction("Rotate", throwIfNotFound: true);
+            m_Game_ButtonKey = m_Game.FindAction("ButtonKey", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -248,12 +280,14 @@ namespace VR
         private List<IGameActions> m_GameActionsCallbackInterfaces = new List<IGameActions>();
         private readonly InputAction m_Game_Move;
         private readonly InputAction m_Game_Rotate;
+        private readonly InputAction m_Game_ButtonKey;
         public struct GameActions
         {
             private @InputActions m_Wrapper;
             public GameActions(@InputActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @Move => m_Wrapper.m_Game_Move;
             public InputAction @Rotate => m_Wrapper.m_Game_Rotate;
+            public InputAction @ButtonKey => m_Wrapper.m_Game_ButtonKey;
             public InputActionMap Get() { return m_Wrapper.m_Game; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -269,6 +303,9 @@ namespace VR
                 @Rotate.started += instance.OnRotate;
                 @Rotate.performed += instance.OnRotate;
                 @Rotate.canceled += instance.OnRotate;
+                @ButtonKey.started += instance.OnButtonKey;
+                @ButtonKey.performed += instance.OnButtonKey;
+                @ButtonKey.canceled += instance.OnButtonKey;
             }
 
             private void UnregisterCallbacks(IGameActions instance)
@@ -279,6 +316,9 @@ namespace VR
                 @Rotate.started -= instance.OnRotate;
                 @Rotate.performed -= instance.OnRotate;
                 @Rotate.canceled -= instance.OnRotate;
+                @ButtonKey.started -= instance.OnButtonKey;
+                @ButtonKey.performed -= instance.OnButtonKey;
+                @ButtonKey.canceled -= instance.OnButtonKey;
             }
 
             public void RemoveCallbacks(IGameActions instance)
@@ -309,6 +349,7 @@ namespace VR
         {
             void OnMove(InputAction.CallbackContext context);
             void OnRotate(InputAction.CallbackContext context);
+            void OnButtonKey(InputAction.CallbackContext context);
         }
     }
 }
